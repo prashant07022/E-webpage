@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bazaarly – Electronics, fashion, home, beauty, sports and books at great prices." />
+  <title>Bazaarly – Everything you need, one cart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#shop">Skip to products</a>
+
+  <!-- ========== TOP BAR + HEADER ========== -->
+  <div class="topbar">Free delivery on orders over ₹499 &nbsp;|&nbsp; 7-day easy returns &nbsp;|&nbsp; Code <strong>SAVE10</strong> for 10% off</div>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="#top" class="logo" aria-label="Bazaarly home">Bazaarly</a>
+
+      <form class="search" id="search-form" role="search">
+        <label for="search" class="sr-only">Search products</label>
+        <input id="search" type="search" placeholder="Search for products, brands and more" autocomplete="off" />
+        <button type="submit" aria-label="Search">Search</button>
+      </form>
+
+      <nav class="header-actions" aria-label="Account">
+        <button class="hbtn" id="orders-btn"><span class="hicon" aria-hidden="true">📦</span><span class="hlabel">Orders</span></button>
+        <button class="hbtn" id="wish-btn" aria-pressed="false"><span class="hicon" aria-hidden="true">♡</span><span class="hlabel">Wishlist</span><span class="count" id="wish-count" hidden>0</span></button>
+        <button class="hbtn" id="cart-btn"><span class="hicon" aria-hidden="true">🛒</span><span class="hlabel">Cart</span><span class="count" id="cart-count" hidden>0</span></button>
+      </nav>
+    </div>
+
+    <nav class="cat-strip" id="cat-strip" aria-label="Categories"></nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ========== HERO CAROUSEL ========== -->
+    <section class="carousel" aria-roledescription="carousel" aria-label="Featured offers">
+      <div class="slides" id="slides"></div>
+      <button class="car-btn prev" id="car-prev" aria-label="Previous offer">&#8249;</button>
+      <button class="car-btn next" id="car-next" aria-label="Next offer">&#8250;</button>
+      <div class="dots" id="dots"></div>
+    </section>
+
+    <!-- ========== DEALS ========== -->
+    <section class="deals" id="deals" aria-labelledby="deals-title">
+      <div class="container">
+        <div class="deals-head">
+          <h2 id="deals-title">Deals of the day</h2>
+          <p class="timer">Ends in <strong id="timer">00:00:00</strong></p>
+        </div>
+        <div class="deal-row" id="deal-row"></div>
+      </div>
+    </section>
+
+    <!-- ========== SHOP ========== -->
+    <section class="container shop" id="shop" aria-labelledby="shop-title">
+      <h2 id="shop-title" class="sr-only">All products</h2>
+      <div class="shop-layout">
+
+        <aside class="filters-wrap" aria-label="Filters">
+          <details class="filters" id="filters" open>
+            <summary>Filters</summary>
+
+            <fieldset>
+              <legend>Price</legend>
+              <label for="price-range" class="range-label">Up to <strong id="price-value">₹15,000</strong></label>
+              <input type="range" id="price-range" min="200" max="15000" step="100" value="15000" />
+            </fieldset>
+
+            <fieldset>
+              <legend>Customer rating</legend>
+              <label><input type="radio" name="rating" value="0" checked /> Any</label>
+              <label><input type="radio" name="rating" value="4" /> 4★ &amp; above</label>
+              <label><input type="radio" name="rating" value="4.3" /> 4.3★ &amp; above</label>
+            </fieldset>
+
+            <fieldset id="brand-group">
+              <legend>Brand</legend>
+            </fieldset>
+
+            <button type="button" class="btn btn-outline btn-block" id="clear-filters">Clear all filters</button>
+          </details>
+        </aside>
+
+        <div class="results">
+          <div class="toolbar">
+            <p class="result-count" id="result-count" aria-live="polite"></p>
+            <label for="sort" class="sr-only">Sort by</label>
+            <select id="sort">
+              <option value="featured">Sort: Featured</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="rating">Customer rating</option>
+              <option value="discount">Biggest discount</option>
+            </select>
+          </div>
+          <div class="chips" id="chips"></div>
+          <div class="grid" id="grid"></div>
+          <div class="empty" id="empty" hidden>
+            <h3>No products found</h3>
+            <p>Try a different search or remove a few filters.</p>
+            <button class="btn btn-primary" id="empty-reset" type="button">Clear all filters</button>
+          </div>
+          <div class="more-wrap"><button class="btn btn-outline" id="load-more" type="button">Show more products</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RECENTLY VIEWED ========== -->
+    <section class="container recent" id="recent" aria-labelledby="recent-title" hidden>
+      <h2 id="recent-title">Recently viewed</h2>
+      <div class="deal-row" id="recent-row"></div>
+    </section>
+
+    <!-- ========== TRUST STRIP ========== -->
+    <section class="trust" aria-label="Why shop with us">
+      <div class="container trust-grid">
+        <div><strong>Free delivery</strong><span>On orders over ₹499</span></div>
+        <div><strong>7-day returns</strong><span>No questions asked</span></div>
+        <div><strong>Secure checkout</strong><span>Your details stay private</span></div>
+        <div><strong>Genuine products</strong><span>From verified sellers</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="logo">Bazaarly</p>
+        <p class="foot-note">A demo store for learning. No payment is taken and no goods are shipped.</p>
+      </div>
+      <div>
+        <h3>Shop</h3>
+        <ul id="foot-cats"></ul>
+      </div>
+      <div>
+        <h3>Help</h3>
+        <ul>
+          <li>Track your order</li>
+          <li>Returns &amp; refunds</li>
+          <li>support@bazaarly.demo</li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-bottom">&copy; <span id="year"></span> Bazaarly. Demo website.</p>
+  </footer>
+
+  <!-- ========== PRODUCT DIALOG ========== -->
+  <dialog id="product-dialog" aria-labelledby="d-name">
+    <div class="modal">
+      <button class="close-btn" data-close aria-label="Close product details">&times;</button>
+      <div class="detail" id="detail"></div>
+    </div>
+  </dialog>
+
+  <!-- ========== CART DRAWER ========== -->
+  <dialog id="cart-dialog" aria-labelledby="cart-title">
+    <div class="drawer">
+      <div class="drawer-head">
+        <h2 id="cart-title">Your cart</h2>
+        <button class="close-btn static" data-close aria-label="Close cart">&times;</button>
+      </div>
+      <ul class="cart-lines" id="cart-lines"></ul>
+      <div class="cart-empty" id="cart-empty" hidden>
+        <p class="big-emoji" aria-hidden="true">🛒</p>
+        <p>Your cart is empty</p>
+        <button class="btn btn-primary" data-close type="button">Start shopping</button>
+      </div>
+      <div class="drawer-foot" id="cart-foot" hidden>
+        <form class="coupon" id="coupon-form" novalidate>
+          <label for="coupon-input" class="sr-only">Coupon code</label>
+          <input id="coupon-input" type="text" placeholder="Coupon code" autocomplete="off" />
+          <button class="btn btn-outline" type="submit">Apply</button>
+        </form>
+        <p class="coupon-msg" id="coupon-msg" role="status"></p>
+        <dl class="totals" id="cart-totals"></dl>
+        <p class="savings" id="cart-savings"></p>
+        <button class="btn btn-primary btn-block" id="checkout-btn" type="button">Proceed to checkout</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ========== CHECKOUT DIALOG ========== -->
+  <dialog id="checkout-dialog" aria-labelledby="co-title">
+    <div class="modal checkout">
+      <button class="close-btn" data-close aria-label="Close checkout">&times;</button>
+      <div id="co-step">
+        <h2 id="co-title">Checkout</h2>
+        <div class="co-grid">
+          <form id="co-form" novalidate>
+            <div class="field"><label for="c-name">Full name</label><input id="c-name" type="text" autocomplete="name" /><span class="error" id="e-name"></span></div>
+            <div class="field-row">
+              <div class="field"><label for="c-phone">Mobile number</label><input id="c-phone" type="tel" inputmode="numeric" placeholder="10 digits" autocomplete="tel" /><span class="error" id="e-phone"></span></div>
+              <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" autocomplete="email" /><span class="error" id="e-email"></span></div>
+            </div>
+            <div class="field"><label for="c-address">Address</label><textarea id="c-address" rows="2" autocomplete="street-address"></textarea><span class="error" id="e-address"></span></div>
+            <div class="field-row">
+              <div class="field"><label for="c-city">City</label><input id="c-city" type="text" autocomplete="address-level2" /><span class="error" id="e-city"></span></div>
+              <div class="field"><label for="c-pin">PIN code</label><input id="c-pin" type="text" inputmode="numeric" maxlength="6" autocomplete="postal-code" /><span class="error" id="e-pin"></span></div>
+            </div>
+            <fieldset class="pay">
+              <legend>Payment method</legend>
+              <label><input type="radio" name="pay" value="UPI" checked /> UPI (demo)</label>
+              <label><input type="radio" name="pay" value="Card" /> Credit / Debit card (demo)</label>
+              <label><input type="radio" name="pay" value="Cash on delivery" /> Cash on delivery</label>
+            </fieldset>
+            <p class="demo-note">Demo only. Please don't enter real payment details.</p>
+          </form>
+          <aside class="summary" aria-label="Order summary">
+            <h3>Order summary</h3>
+            <ul id="sum-lines"></ul>
+            <dl class="totals" id="sum-totals"></dl>
+            <button class="btn btn-primary btn-block" id="place-order" type="button">Place demo order</button>
+          </aside>
+        </div>
+      </div>
+      <div class="confirm" id="confirm" hidden>
+        <p class="big-emoji" aria-hidden="true">✅</p>
+        <h2>Order placed</h2>
+        <p>Thanks, <strong id="cf-name"></strong>! Your order <strong id="cf-id"></strong> is confirmed.</p>
+        <p>Estimated delivery: <strong id="cf-date"></strong></p>
+        <p class="demo-note">This is a demo. No payment was taken and nothing will ship.</p>
+        <div class="confirm-actions">
+          <button class="btn btn-outline" id="cf-orders" type="button">View my orders</button>
+          <button class="btn btn-primary" data-close type="button">Continue shopping</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ========== ORDERS DIALOG ========== -->
+  <dialog id="orders-dialog" aria-labelledby="orders-title">
+    <div class="modal orders">
+      <button class="close-btn" data-close aria-label="Close orders">&times;</button>
+      <h2 id="orders-title">My orders</h2>
+      <ul id="orders-list"></ul>
+      <p class="demo-note" id="orders-empty" hidden>You haven't placed any orders yet.</p>
+    </div>
+  </dialog>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
